@@ -28,32 +28,32 @@ In total, there are 11 registers and one boolean flag.
   GRA
   
     General register A. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   GRB
   
     General register B. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   GRC
   
     General register C. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   GRD
   
     General register D. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   GRE
   
     General register E. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   GRF
   
     General register F. 
-    64-bit register used for any given operations
+    64-bit register used for any given operations.
     
   ACC
   
