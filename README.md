@@ -162,11 +162,13 @@ In total, there are 11 registers and one boolean flag.
       
     greater
     
-      Compares operand one against operand two and sets the boolean flag according to whether operand one is greater than operand two.
+      Compares operand one against operand two.
+      Sets the boolean flag according to whether operand one is greater than operand two.
       
     less
     
-      Compares operand one against operand two and sets the boolean flag according to whether operand one is less than operand two.
+      Compares operand one against operand two.
+      Sets the boolean flag according to whether operand one is less than operand two.
      
     and
       
