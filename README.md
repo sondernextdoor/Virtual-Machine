@@ -2,6 +2,8 @@
 
 A Turing-complete 64-bit virtual machine developed in C++ and C#
 
+![alt text](https://github.com/paradoxwastaken/Virtual-Machine/blob/master/Media/vm_graphic.png?raw=true)
+
 # Structure & Design
 
 The GUI and assembler are implemented in C# (WPF). The VM is meant to be built as a .dll and loaded into the GUI/client program; from there, necessary functionality is exposed to the GUI.
