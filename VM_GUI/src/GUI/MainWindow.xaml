@@ -1,0 +1,83 @@
+﻿<Window x:Class="VirtualMachine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualMachine"
+        mc:Ignorable="d"
+        Title="Virtual Machine" Height="819" Width="780" ResizeMode="CanMinimize" Icon="/images/logo.png">
+	<Grid Margin="0,0,0,-229">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="111*"/>
+			<ColumnDefinition Width="199*"/>
+			<ColumnDefinition Width="41*"/>
+			<ColumnDefinition Width="453*"/>
+		</Grid.ColumnDefinitions>
+		<RichTextBox x:Name="asmTextBox" VerticalScrollBarVisibility="Auto" Width="300" Margin="10,49,21,0" TextChanged="OnAssemblerTextChanged" Height="416" VerticalAlignment="Top" Grid.ColumnSpan="3">
+			<RichTextBox.Resources>
+				<Style TargetType="{x:Type Paragraph}">
+					<Setter Property="Margin" Value="0"/>
+				</Style>
+			</RichTextBox.Resources>
+		</RichTextBox>
+
+		<ListBox Margin="28,49,268,733" x:Name="registerList" FontFamily="Microsoft Sans Serif" RenderTransformOrigin="0.513,0.408" Grid.Column="2" Grid.ColumnSpan="2" MouseRightButtonDown="OnRegisterRightClick">
+
+			<ListBox.ItemContainerStyle>
+				<Style TargetType="{x:Type ListBoxItem}">
+					<Style.Setters>
+						<Setter Property="IsHitTestVisible" Value="False"/>
+					</Style.Setters>
+				</Style>
+			</ListBox.ItemContainerStyle>
+
+			<ListBoxItem Content="GRA: "/>
+			<ListBoxItem Content="GRB: "/>
+			<ListBoxItem Content="GRC: "/>
+			<ListBoxItem Content="GRD: "/>
+			<ListBoxItem Content="GRE: "/>
+			<ListBoxItem Content="GRF: "/>
+			<ListBoxItem Content="ACC: "/>
+			<ListBoxItem Content="RR: "/>
+			<ListBoxItem Content="SP: "/>
+			<ListBoxItem Content="BP: "/>
+			<ListBoxItem Content="IC: "/>
+			<ListBoxItem Content="Boolean Flag: "/>
+		</ListBox>
+		<Button Content="Execute" Background="DarkGray" HorizontalAlignment="Left" Margin="0,465,0,0" VerticalAlignment="Top" Width="86" Height="26" Click="OnAssemblerExecute" RenderTransformOrigin="0.502,0.642" Grid.Column="1"/>
+
+		<ListBox x:Name="stackList" Margin="176,49,23,269" FontFamily="Microsoft Sans Serif" Grid.Column="3">
+			<ListBox.ItemContainerStyle>
+				<Style TargetType="{x:Type ListBoxItem}">
+					<Style.Setters>
+						<Setter Property="IsHitTestVisible" Value="False"/>
+					</Style.Setters>
+				</Style>
+			</ListBox.ItemContainerStyle>
+		</ListBox>
+		<Button Content="Create New" Background="DarkGray" HorizontalAlignment="Left" Margin="41,739,0,0" VerticalAlignment="Top" Width="83" Height="24" Click="OnFileCreate" RenderTransformOrigin="0.607,0.667" Grid.ColumnSpan="2"/>
+		<Button Content="Write File" Background="DarkGray" HorizontalAlignment="Left" Margin="159,739,0,0" VerticalAlignment="Top" Width="97" Height="24" Click="OnFileWrite" RenderTransformOrigin="0.518,0.531" Grid.Column="1" Grid.ColumnSpan="3"/>
+		<RichTextBox x:Name="writeFileText" Margin="57,563,268,269" Grid.ColumnSpan="3" Grid.Column="1">
+			<RichTextBox.Resources>
+				<Style TargetType="{x:Type Paragraph}">
+					<Setter Property="Margin" Value="0"/>
+				</Style>
+			</RichTextBox.Resources>
+			<FlowDocument>
+				<Paragraph>
+					<Run Text=""/>
+				</Paragraph>
+			</FlowDocument>
+		</RichTextBox>
+		<ListBox x:Name="fileListBox" Margin="10,563,136,269" SelectionChanged='OnFileSelect' Grid.ColumnSpan="2">
+			<ListBox.ContextMenu>
+				<ContextMenu Name="fileMenu">
+					<MenuItem Header="Delete File" Click="OnFileDelete" IsEnabled="{Binding Display}"/>
+				</ContextMenu>
+			</ListBox.ContextMenu>
+		</ListBox>
+		<Image HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="804" Grid.ColumnSpan="4" Source="/images/header.png" Margin="17,0,0,0"/>
+		<Image HorizontalAlignment="Left" Height="62" Margin="10,501,0,0" VerticalAlignment="Top" Width="516" Grid.ColumnSpan="4" Source="/images/file-header.png"/>
+	</Grid>
+
+</Window>

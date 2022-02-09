@@ -1,0 +1,9 @@
+﻿<Application x:Class="VM_GUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:VirtualMachine"
+             StartupUri="src\gui\MainWindow.xaml">
+	<Application.Resources>
+
+	</Application.Resources>
+</Application>
