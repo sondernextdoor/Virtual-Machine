@@ -6,7 +6,8 @@ A Turing-complete 64-bit virtual machine developed in C++ and C#
 
 The GUI and assembler are implemented in C# (WPF). The VM is meant to be built as a .dll and loaded into the GUI/client program; from there, necessary functionality is exposed to the GUI.
 
-The virtual machine is implemented as a class that contains two nested classes; central_processing_unit and storage. The virtual machine class has one public method (the constructor) and two public member variables; a central_processing_unit object and a storage object. (virtual_machine.h/virtual_machine.cpp)
+The virtual machine is implemented as a class that contains two nested classes; central_processing_unit and storage. The virtual machine class has one public method (the constructor) and two public member variables; a central_processing_unit object and a storage object. 
+(virtual_machine.h/virtual_machine.cpp)
 
 The central_processing_unit class represents the processor of the virtual machine. It contains the logic that receives, interprets, and executes any valid given assembly instructions. The class contains one public method and two public member variables; one of type vm_registers representing the CPU registers and the other a vector of type int64_t representing the stack. In addition, it contains twenty-seven private methods which provide the functionality required to carry out the various computational operations. (virtual_machine.h/central_processing_unit.cpp)
 
