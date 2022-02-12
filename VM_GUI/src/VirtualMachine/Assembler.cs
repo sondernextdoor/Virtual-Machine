@@ -117,12 +117,12 @@ unsafe public class Assembler
 
 	static private long FindOpcode( string instruction )
 	{
-        if ( instructionMap.TryGetValue( instruction, out long value ) == false )
-        {
+        	if ( instructionMap.TryGetValue( instruction, out long value ) == false )
+        	{
 			return 0;
-        }
+        	}
 
-        return value;
+        	return value;
 	}
 
 	static private string[] FormatInstructions( string rawInstructions )
@@ -170,9 +170,9 @@ unsafe public class Assembler
 			if ( rawInstructions[i..].StartsWith( "label" ) == true )
 			{
 				while ( rawInstructions[i].CompareTo( '\"' ) != 0 )
-                {
+                		{
 					i += 1;
-                }
+                		}
 
 				for ( int j = i + 1; j < rawInstructions.Length; j++ )
 				{
@@ -203,7 +203,7 @@ unsafe public class Assembler
 		escapes.Add( "\\\"", "\"" );
 
 		for ( int i = 0, labelCounter = 0; i < instructions.Count; i++ )
-        {
+        	{
 			if ( instructions[i].StartsWith( new string( @"//" ) )
 				 || instructions[i].Equals( "" ) || instructions[i].Equals( "\n" ) 
 				 || instructions[i].Equals( "\r" ) || instructions[i].Equals( "\t" ) 
@@ -216,7 +216,7 @@ unsafe public class Assembler
 				|| instructions[i].Equals( "\nlabel" ) == true || instructions[i].Equals( "\rlabel" ) == true ) )
 			{
 				if ( labelTable.TryGetValue( labels[labelCounter], out int offset ) != true )
-                {
+                		{
 					labelTable.Add( labels[labelCounter], i );
 				}
 
@@ -248,12 +248,12 @@ unsafe public class Assembler
 				stringCounter += 1;
 
 				for ( int escapeCounter = 0; escapeCounter < escapes.Count; escapeCounter++ )
-                {
+                		{
 					instructions[i] = instructions[i].Replace
 					( 
 						escapes.ElementAt( escapeCounter ).Key, escapes.ElementAt( escapeCounter ).Value 
 					);
-                }
+                		}
 
 				continue;
 			}
@@ -263,12 +263,11 @@ unsafe public class Assembler
 			for ( int j = 0; j < instructions.Count; j++ )
 			{
 				if ( string.IsNullOrWhiteSpace( instructions[j] ) == true )
-                {
+                		{
 					instructions.RemoveAt( j );
 					j -= 1;
-                }
-			}
-				
+                		}
+			}		
 		}
 
 		return instructions.ToArray();
@@ -277,7 +276,7 @@ unsafe public class Assembler
 	static public CPU.Registers Assemble( string rawInstructions )
 	{
 		List<long> opcodes = new();
-        string[] instructions = FormatInstructions( rawInstructions );
+        	string[] instructions = FormatInstructions( rawInstructions );
 
 		for ( int i = 0; i < instructions.Length; i++ )
 		{
@@ -287,9 +286,9 @@ unsafe public class Assembler
 				continue;
 			}
 
-            long opcode = FindOpcode( instructions[i] );
+            		long opcode = FindOpcode( instructions[i] );
 
-            if ( opcode == 0 )
+            		if ( opcode == 0 )
 			{
 				opcodes.Add( long.Parse( instructions[i] ) );
 				continue;
