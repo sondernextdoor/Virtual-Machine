@@ -38,7 +38,6 @@ namespace ExtensionMethods
         	}
 	}
 
-
 	public static class StringExtensions
 	{
 		public static IntPtr ToPointer( this string str )
