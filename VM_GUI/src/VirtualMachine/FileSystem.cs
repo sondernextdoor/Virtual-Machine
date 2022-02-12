@@ -7,7 +7,7 @@ using ExtensionMethods;
 
 namespace VirtualMachine
 {
-    unsafe public class FileSystem
+    	unsafe public class FileSystem
 	{
 		public const int maxPath = 260;
 
