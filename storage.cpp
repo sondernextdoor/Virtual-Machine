@@ -5,10 +5,10 @@ virtual_machine::storage::storage()
 	std::filesystem::path current_path{ std::filesystem::current_path() };
 	std::filesystem::space_info space{ std::filesystem::space( current_path ) };
 
-    if ( open_stream( std::ios::in | std::ios::out | std::ios::app ) == false ) 
+    	if ( open_stream( std::ios::in | std::ios::out | std::ios::app ) == false ) 
 	{
-        return;
-    } 
+        	return;
+    	} 
 	
 	max_size = space.available / 100;
 
